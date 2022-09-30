@@ -67,8 +67,10 @@ jobs:
 
       - name: Pull down and modify release.js and release scripts
         run: |
-          curl --progress-bar -O https://raw.githubusercontent.com/mParticle/mparticle-workflows/main/ios/release.config.js
-          curl --progress-bar -O https://raw.githubusercontent.com/mParticle/mparticle-workflows/main/ios/release.sh
+          #curl --progress-bar -O https://raw.githubusercontent.com/mParticle/mparticle-workflows/main/ios/release.config.js
+          #curl --progress-bar -O https://raw.githubusercontent.com/mParticle/mparticle-workflows/main/ios/release.sh
+          curl --progress-bar -O https://raw.githubusercontent.com/mParticle/mparticle-workflows/ci/ios-kits-semantic-release/ios/release.config.js
+          curl --progress-bar -O https://raw.githubusercontent.com/mParticle/mparticle-workflows/ci/ios-kits-semantic-release/ios/release.sh
           sed -i '' "s/REPO_NAME/$(ls *.podspec | sed 's/.podspec//')/g" release.config.js
 
       - name: Release --dry-run
